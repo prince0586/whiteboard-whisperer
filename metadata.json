@@ -1,0 +1,8 @@
+{
+  "name": "Whiteboard Whisperer",
+  "description": "An advanced multimodal agentic application featuring low-latency WebSockets, raw audio/video processing, image generation, and autonomous UI navigation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

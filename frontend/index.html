@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard Whisperer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #030712; color: #22d3ee; font-family: monospace; }
+        .glass { background: rgba(17, 24, 39, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(34, 211, 238, 0.2); }
+        .neon-text { text-shadow: 0 0 10px rgba(34, 211, 238, 0.5); }
+        .neon-box { box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); }
+    </style>
+</head>
+<body class="p-6">
+    <header class="flex items-center justify-between mb-8 border-b border-cyan-900/50 pb-4">
+        <h1 class="text-2xl font-bold tracking-widest uppercase neon-text">Whiteboard Whisperer</h1>
+        <span id="status" class="text-sm">SYSTEM STANDBY</span>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-xl p-4 neon-box">
+            <h2 class="text-sm font-semibold tracking-wider mb-4">OPTICAL SENSOR</h2>
+            <div class="aspect-video bg-black rounded-lg overflow-hidden border border-gray-800">
+                <video id="video" autoplay playsinline muted class="w-full h-full object-cover"></video>
+            </div>
+            <button id="startBtn" class="mt-6 w-full bg-cyan-950 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-400 py-3 rounded-lg font-bold tracking-wider transition-all neon-box">
+                INITIATE LIVE LINK
+            </button>
+        </div>
+
+        <div class="glass rounded-xl p-4 neon-box flex flex-col">
+            <h2 class="text-sm font-semibold tracking-wider mb-4">TACTICAL DISPLAY</h2>
+            <div class="flex-1 bg-black rounded-lg border border-gray-800 flex items-center justify-center p-4 min-h-[300px]">
+                <img id="diagram" class="hidden w-full h-full object-contain rounded" />
+                <p id="placeholder" class="text-gray-600">AWAITING VISION EXECUTION</p>
+            </div>
+            <button id="makeRealBtn" class="mt-6 w-full bg-cyan-900 text-cyan-400 border border-cyan-400/50 py-4 rounded-lg font-bold tracking-widest text-lg transition-all opacity-50 cursor-not-allowed">
+                MAKE THIS REAL
+            </button>
+        </div>
+    </div>
+
+    <div id="hitlModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden items-center justify-center z-50 p-4">
+        <div class="bg-gray-900 border-2 border-amber-500/50 rounded-xl max-w-lg w-full p-6" style="box-shadow: 0 0 50px rgba(245,158,11,0.2)">
+            <h3 class="text-xl font-bold tracking-wider text-amber-500 mb-6">HITL_REQUIRED</h3>
+            <p id="hitlMessage" class="text-gray-300 mb-8 leading-relaxed"></p>
+            <div class="flex gap-4">
+                <button id="abortBtn" class="flex-1 bg-gray-800 text-white py-3 rounded-lg font-bold">ABORT</button>
+                <button id="approveBtn" class="flex-1 bg-amber-600 text-white py-3 rounded-lg font-bold">APPROVE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
